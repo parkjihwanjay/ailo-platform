@@ -1,7 +1,7 @@
 module.exports = {
-    lintOnSave: false,
+	lintOnSave: false,
 
-    devServer: {
+	devServer: {
 		open: process.platform === 'darwin',
 		host: '0.0.0.0',
 		port: 8080, // CHANGE YOUR PORT HERE!
@@ -9,7 +9,7 @@ module.exports = {
 		hotOnly: false,
 	},
 
-    css: {
+	css: {
 		loaderOptions: {
 			scss: {
 				prependData: `
@@ -24,25 +24,25 @@ module.exports = {
 		},
 	},
 
-    pluginOptions: {
-      s3Deploy: {
-        registry: undefined,
-        awsProfile: 'default',
-        region: 'Asia Pacific(Seoul)',
-        bucket: 'ailoplatform',
-        createBucket: true,
-        staticHosting: true,
-        staticIndexPage: 'index.html',
-        staticErrorPage: 'index.html',
-        assetPath: 'dist',
-        assetMatch: '**',
-        deployPath: '/',
-        acl: 'public-read',
-        pwa: true,
-        pwaFiles: 'service-worker.js',
-        enableCloudfront: false,
-        uploadConcurrency: 5,
-        pluginVersion: '3.0.0'
-      }
-    }
+	pluginOptions: {
+		s3Deploy: {
+			registry: undefined,
+			awsProfile: 'default',
+			region: 'ap-northeast-2',
+			bucket: 'ailoplatform',
+			createBucket: true,
+			staticHosting: true,
+			staticIndexPage: 'index.html',
+			staticErrorPage: 'index.html',
+			assetPath: 'dist',
+			assetMatch: '**',
+			deployPath: '/',
+			acl: 'public-read',
+			pwa: false,
+			pwaFiles: 'service-worker.js',
+			enableCloudfront: false,
+			uploadConcurrency: 5,
+			pluginVersion: '3.0.0',
+		},
+	},
 };
