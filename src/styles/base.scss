@@ -1,19 +1,20 @@
 @import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css);
 
-@media only screen and (max-width:375px){
+@media only screen and (max-width:450px){
   html{
     font-size: 62.5%;
   }
 }
 
-@media only screen and (min-width:375px)  and (max-width:1024px){
+@media only screen and (min-width:450px)  and (max-width:1024px){
   html{
     font-size: 82.5%;
   }
 }
 
 body {
-	font-family: $primary-font;
+  font-family: $primary-font;
+  background-color: bisque;
 }
 
 .border{

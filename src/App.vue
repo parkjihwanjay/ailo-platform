@@ -18,9 +18,9 @@ export default {
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
-
+	background-color: white;
 	//test 용
-	border: 1px solid black;
-	height: 700px;
+	// border: 1px solid black;
+	// height: 700px;
 }
 </style>
