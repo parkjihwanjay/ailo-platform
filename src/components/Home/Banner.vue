@@ -36,20 +36,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.example-slide {
-	align-items: center;
-	background-color: #666;
-	color: #999;
-	display: flex;
-	font-size: 1.5rem;
-	justify-content: center;
-	min-height: 10rem;
-}
 .banner {
 	margin-top: 16px;
 	width: 100%;
 	height: 67vw;
-	max-height: 380px;
+	max-height: 550px;
 }
 .full {
 	width: 100%;
