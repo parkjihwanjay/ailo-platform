@@ -39,7 +39,7 @@ export default {
 .banner {
 	margin-top: 16px;
 	width: 100%;
-	height: 67vw;
+	height: 63vw;
 	max-height: 550px;
 }
 .full {
