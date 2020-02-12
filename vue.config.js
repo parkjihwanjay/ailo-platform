@@ -29,7 +29,7 @@ module.exports = {
 			registry: undefined,
 			awsProfile: 'default',
 			region: 'ap-northeast-2',
-			bucket: 'ailoplatform',
+			bucket: 'platform',
 			createBucket: true,
 			staticHosting: true,
 			staticIndexPage: 'index.html',
