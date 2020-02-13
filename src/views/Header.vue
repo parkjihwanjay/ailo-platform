@@ -1,7 +1,7 @@
 <template>
 	<div class="header">
 		<header-title></header-title>
-		<header-menu></header-menu>
+		<header-menu @menuSelected="menuSelected"></header-menu>
 	</div>
 </template>
 
@@ -14,6 +14,18 @@ export default {
 	components: {
 		HeaderTitle,
 		HeaderMenu,
+	},
+	methods: {
+		menuSelected(menu) {
+			if (menu === 'home')
+				this.$router.push({
+					name: 'Home',
+				});
+			else
+				this.$router.push({
+					name: 'Intro',
+				});
+		},
 	},
 };
 </script>

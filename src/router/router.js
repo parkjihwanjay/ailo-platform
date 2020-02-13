@@ -3,7 +3,7 @@ import List from '../views/List.vue';
 const routes = [
 	{
 		path: '/',
-		name: 'home',
+		name: 'Home',
 		component: Home,
 		children: [
 			{
@@ -12,6 +12,11 @@ const routes = [
 				component: List,
 			},
 		],
+	},
+	{
+		path: '/intro',
+		name: 'Intro',
+		component: Home,
 	},
 ];
 
