@@ -11,10 +11,6 @@ export default {
 	name: 'CategoryButton',
 	// props : ['category', 'cateList']
 	props: {
-		category: {
-			type: String,
-			default: '다이어리',
-		},
 		cateList: {
 			type: Array,
 			default: function() {

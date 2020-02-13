@@ -1,5 +1,5 @@
 <template>
-	<div class="filter-box">
+	<div @click="$emit('openFilter')" class="filter-box">
 		<div>
 			<font-awesome-icon class="filter-icon" :icon="['fas', 'filter']" />
 			필터
@@ -24,6 +24,7 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 }
 .filter-icon {
 	margin-right: 0.8rem;

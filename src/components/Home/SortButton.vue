@@ -1,6 +1,6 @@
 <template>
 	<div class="sort">
-		<select v-model="sort" @change="sortSelected">
+		<select v-model="sort" @change="$emit('sortSelected', sort)">
 			<option disabled value="" selected>골라주세요</option>
 			<option :value="sort" v-for="sort in sortList">{{ sort }}</option>
 		</select>
@@ -15,21 +15,18 @@
 <script>
 export default {
 	name: 'SortButton',
+	props: {
+		sortList: {
+			type: Array,
+			default: function() {
+				return ['다이어리', '노트', '스티커'];
+			},
+		},
+	},
 	data() {
 		return {
-			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
 			sort: '',
 		};
-	},
-	methods: {
-		sortSelected() {
-			this.$router.push({
-				name: 'List',
-				params: {
-					sort: this.sort,
-				},
-			});
-		},
 	},
 };
 </script>
