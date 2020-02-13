@@ -1,14 +1,39 @@
 <template>
 	<div class="buttons">
-		<div class="button first">다이어리</div>
-		<div class="button">노트</div>
-		<div class="button">스티커</div>
+		<div v-for="(cate, index) in cateList" ref="category" class="button" @click="changeCate(index)">
+			{{ cate }}
+		</div>
 	</div>
 </template>
 
 <script>
 export default {
 	name: 'CategoryButton',
+	// props : ['category', 'cateList']
+	props: {
+		category: {
+			type: String,
+			default: '다이어리',
+		},
+		cateList: {
+			type: Array,
+			default: function() {
+				return ['다이어리', '노트', '스티커'];
+			},
+		},
+	},
+	methods: {
+		changeCate(index) {
+			const cateDivs = this.$refs.category;
+
+			cateDivs.forEach(category => {
+				category.classList.remove('border-red');
+			});
+
+			cateDivs[index].classList.add('border-red');
+			this.$emit('changeCate', this.cateList[index]);
+		},
+	},
 };
 </script>
 
@@ -30,5 +55,9 @@ export default {
 	border: 1px solid $primary-color;
 	border-bottom: 0;
 	// box-shadow: 0.7px 0 0 0 #000000, 0.7px 0 0 0 #000000 inset, 0 0.7px 0 0 #000000 inset;
+}
+
+.border-red {
+	border-color: red;
 }
 </style>

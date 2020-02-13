@@ -1,8 +1,8 @@
 <template>
 	<div class="sort">
-		<select>
+		<select v-model="sort" @change="sortSelected">
 			<option disabled value="" selected>골라주세요</option>
-			<option v-for="sort in sortList">{{ sort }}</option>
+			<option :value="sort" v-for="sort in sortList">{{ sort }}</option>
 		</select>
 		<!-- <v-select
 				class="style-chooser"
@@ -18,7 +18,18 @@ export default {
 	data() {
 		return {
 			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
+			sort: '',
 		};
+	},
+	methods: {
+		sortSelected() {
+			this.$router.push({
+				name: 'List',
+				params: {
+					sort: this.sort,
+				},
+			});
+		},
 	},
 };
 </script>
