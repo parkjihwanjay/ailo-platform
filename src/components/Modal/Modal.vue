@@ -1,7 +1,11 @@
 <template>
-	<div class="modal-parent">
+	<div class="modal">
 		<transition name="fade">
-			<modal-filter @closeFilter="$emit('closeFilter')"></modal-filter>
+			<div class="modal-container">
+				<modal-filter>
+					<input @click="$emit('closeFilter')" type="button" value="닫기" />
+				</modal-filter>
+			</div>
 		</transition>
 	</div>
 </template>
@@ -17,10 +21,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal-parent {
-	width: 100%;
-	height: 100%;
-}
+@import '@/styles/modal.scss';
+
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.3s;

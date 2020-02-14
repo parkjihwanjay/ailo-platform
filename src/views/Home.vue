@@ -7,7 +7,7 @@
 			<filter-button @openFilter="filterOn = true"></filter-button>
 		</div>
 		<!-- <router-view></router-view> -->
-		<Modal @closeFilter="filterOn = false" v-show="filterOn" />
+		<!-- <Modal @closeFilter="filterOn = false" v-show="filterOn" /> -->
 	</div>
 </template>
 
@@ -53,7 +53,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .box {
 	width: 90%;
 	height: 1.9rem;

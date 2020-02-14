@@ -1,15 +1,14 @@
 <template>
-	<div class="modal">
-		<!-- <div class="popup-close"></div> -->
-		<div class="modal-container">
-			<div class="modal-inner not-ready-modal">
-				<img src="../../assets/logo.png" alt="Warning" />
-				<h2>준비중입니다!</h2>
-				<p>빠른 시일 내에 찾아뵙겠습니다.</p>
-				<input @click="$emit('closeFilter')" type="button" value="닫기" />
-			</div>
-		</div>
+	<!-- <div class="modal-container"> -->
+	<div class="modal-inner not-ready-modal">
+		<img src="../../assets/logo.png" alt="Warning" />
+		<h2>준비중입니다!</h2>
+		<p>빠른 시일 내에 찾아뵙겠습니다.</p>
+		<slot>
+			<!-- input 버튼이 옴 -->
+		</slot>
 	</div>
+	<!-- </div> -->
 </template>
 
 <script>
