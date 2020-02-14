@@ -35,7 +35,7 @@ export default {
 .filter-body {
 	width: 100%;
 	max-height: 450px;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 .filter-bdoy__content {
 	width: 80%;
