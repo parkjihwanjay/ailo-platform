@@ -1,38 +1,102 @@
 <template>
-	<!-- <div class="modal-container"> -->
-	<div class="modal-inner not-ready-modal">
-		<img src="../../assets/logo.png" alt="Warning" />
-		<h2>준비중입니다!</h2>
-		<p>빠른 시일 내에 찾아뵙겠습니다.</p>
-		<slot>
-			<!-- input 버튼이 옴 -->
-		</slot>
+	<div class="modal-container filter-modal">
+		<ModalFilterHead />
+		<ModalFilterBody @filterClicked="filterClicked" :filterData="filterData" />
+		<ModalFilterFooter @finishFilter="finishFilter" />
 	</div>
-	<!-- </div> -->
 </template>
 
 <script>
+import ModalFilterHead from './ModalFilterHead.vue';
+import ModalFilterBody from './ModalFilterBody.vue';
+import ModalFilterFooter from './ModalFilterFooter.vue';
+
+import { EventBus } from '@/utils/event-bus.js';
+
 export default {
 	name: 'ModalFilter',
+	props: ['category'],
+	components: {
+		ModalFilterHead,
+		ModalFilterBody,
+		ModalFilterFooter,
+	},
+	data() {
+		return {
+			filters: {},
+		};
+	},
+	computed: {
+		filterData() {
+			if (this.category === '다이어리') {
+				return [
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '카테고리',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '카테고리',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '카테고리',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+					{
+						title: '카테고리',
+						contents: ['전체', '블로그', '스토어'],
+					},
+				];
+			} else if (this.category === '노트') {
+				return [
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+				];
+			} else {
+				return [
+					{
+						title: '다운로드',
+						contents: ['전체', '블로그', '스토어'],
+					},
+				];
+			}
+		},
+	},
+	methods: {
+		filterClicked(title, content) {
+			this.filters[title] = content;
+		},
+		finishFilter() {
+			EventBus.$emit('finishFilter', this.filters);
+			// this.$emit('finishFilter', this.filters);
+		},
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 @import '@/styles/modal.scss';
-.not-ready-modal {
-	min-width: 470px;
-	max-width: 1240px;
-	max-height: 90%;
-	overflow-y: auto;
-}
-.modal-inner {
-	text-align: center;
-	padding: 64.5px 50px;
-}
-.mt-50 {
-	margin-top: 50px;
-}
-input {
-	cursor: pointer;
+.filter-modal {
+	width: 80%;
+	max-width: 750px;
+	border-radius: 10px;
 }
 </style>

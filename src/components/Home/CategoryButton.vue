@@ -18,6 +18,12 @@ export default {
 			},
 		},
 	},
+	created() {
+		this.$emit('changeCate', this.cateList[0]);
+	},
+	mounted() {
+		this.$refs.category[0].classList.add('border-red');
+	},
 	methods: {
 		changeCate(index) {
 			const cateDivs = this.$refs.category;

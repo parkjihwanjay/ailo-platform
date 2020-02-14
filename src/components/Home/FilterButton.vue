@@ -1,22 +1,19 @@
 <template>
 	<div class="filter-container">
-		<div @click="openFilter()" class="filter-box">
+		<div @click="$emit('openFilter')" class="filter-box">
 			<div>
 				<font-awesome-icon class="filter-icon" :icon="['fas', 'filter']" />
 				필터
 			</div>
 		</div>
-		<Modal v-show="filterOn" @closeFilter="closeFilter()" />
 	</div>
 </template>
 
 <script>
-import Modal from '../Modal/Modal.vue';
+// import Modal from '../Modal/Modal.vue';
+// import ModalFilter from '../Modal/ModalFilter.vue';
 export default {
 	name: 'FilterButton',
-	components: {
-		Modal,
-	},
 	data() {
 		return {
 			filterOn: false,

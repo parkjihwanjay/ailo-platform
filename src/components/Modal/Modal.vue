@@ -1,11 +1,7 @@
 <template>
 	<div class="modal">
 		<transition name="fade">
-			<div class="modal-container">
-				<modal-filter>
-					<input @click="$emit('closeFilter')" type="button" value="닫기" />
-				</modal-filter>
-			</div>
+			<modal-filter :category="category"></modal-filter>
 		</transition>
 	</div>
 </template>
@@ -14,6 +10,7 @@
 import ModalFilter from './ModalFilter.vue';
 export default {
 	name: 'Modal',
+	props: ['category'],
 	components: {
 		ModalFilter,
 	},
@@ -22,7 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/modal.scss';
-
 .fade-enter-active,
 .fade-leave-active {
 	transition: opacity 0.3s;

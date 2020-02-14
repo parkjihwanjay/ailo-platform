@@ -4,10 +4,10 @@
 		<category-button @changeCate="changeCate" :cateList="cateList"></category-button>
 		<div class="box">
 			<sort-button :sortList="sortList" :sort="sort" @sortSelected="changeSort"></sort-button>
-			<filter-button @openFilter="filterOn = true"></filter-button>
+			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
 		<!-- <router-view></router-view> -->
-		<!-- <Modal @closeFilter="filterOn = false" v-show="filterOn" /> -->
+		<Modal :category="category" v-show="filterOn" />
 	</div>
 </template>
 
@@ -20,6 +20,7 @@ import SortButton from '../components/Home/SortButton.vue';
 
 import Modal from '../components/Modal/Modal.vue';
 
+import { EventBus } from '../utils/event-bus.js';
 export default {
 	components: {
 		Banner,
@@ -34,11 +35,16 @@ export default {
 			category: '',
 			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
 			sort: '',
-			filter: '',
+			filters: '',
 			filterOn: false,
 		};
 	},
 	created() {
+		EventBus.$on('finishFilter', filters => {
+			this.filterOn = false;
+			this.filters = filters;
+			console.log(filters);
+		});
 		// 데이터 불러오는 로직
 	},
 	methods: {
