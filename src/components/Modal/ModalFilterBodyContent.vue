@@ -67,6 +67,7 @@ input[type='button'] {
 	border: solid 0.7px #000000;
 	// background-color: white;
 	padding: 0;
+	line-height: normal;
 }
 
 .clicked {

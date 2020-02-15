@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu {
-	width: 70%;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 13px;
 	display: flex;

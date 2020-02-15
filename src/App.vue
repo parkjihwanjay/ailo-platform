@@ -19,7 +19,7 @@ export default {
 <style lang="scss">
 #app {
 	width: 100%;
-	max-width: 1024px;
+	max-width: 800px;
 	margin: 0 auto;
 	background-color: white;
 	//test 용

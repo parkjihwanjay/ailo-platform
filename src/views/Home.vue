@@ -6,6 +6,7 @@
 			<sort-button :sortList="sortList" :sort="sort" @sortSelected="changeSort"></sort-button>
 			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
+		<List />
 		<!-- <router-view></router-view> -->
 		<Modal :category="category" v-show="filterOn" />
 	</div>
@@ -20,7 +21,10 @@ import SortButton from '../components/Home/SortButton.vue';
 
 import Modal from '../components/Modal/Modal.vue';
 
+import List from './List.vue';
+
 import { EventBus } from '../utils/event-bus.js';
+
 export default {
 	components: {
 		Banner,
@@ -28,6 +32,7 @@ export default {
 		FilterButton,
 		SortButton,
 		Modal,
+		List,
 	},
 	data() {
 		return {
@@ -61,8 +66,8 @@ export default {
 
 <style scoped lang="scss">
 .box {
-	width: 90%;
 	height: 1.9rem;
+	width: 90%;
 	margin: 0 auto;
 	margin-top: 20px;
 	display: flex;

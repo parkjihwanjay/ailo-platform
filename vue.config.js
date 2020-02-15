@@ -26,7 +26,7 @@ module.exports = {
 
 	pluginOptions: {
 		s3Deploy: {
-			// registry: undefined,
+			registry: undefined,
 			awsProfile: 'default',
 			region: 'ap-northeast-2',
 			bucket: 'ailoplatform',

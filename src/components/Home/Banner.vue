@@ -40,7 +40,7 @@ export default {
 	margin-top: 16px;
 	width: 100%;
 	height: 63vw;
-	max-height: 550px;
+	max-height: 480px;
 }
 .full {
 	width: 100%;

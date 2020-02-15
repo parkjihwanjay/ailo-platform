@@ -19,6 +19,7 @@ export default {
 	border-bottom-right-radius: 10px;
 	display: flex;
 	align-items: center;
+	border-top: 1px solid rgb(0, 0, 0, 0.3);
 }
 .footer-button {
 	width: 60%;
