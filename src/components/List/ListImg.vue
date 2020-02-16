@@ -1,6 +1,6 @@
 <template>
 	<div class="item-img">
-		<img :src="imgSrc" alt="아일로 표지" />
+		<img :src="src" alt="아일로 표지" />
 		<!-- 크롤링해서 가져오는 img src 뒤에 300 붙이기! -->
 	</div>
 </template>
@@ -9,6 +9,11 @@
 export default {
 	name: 'ListImg',
 	props: ['imgSrc'],
+	computed: {
+		src() {
+			return `${this.imgSrc}?type=f300`;
+		},
+	},
 };
 </script>
 

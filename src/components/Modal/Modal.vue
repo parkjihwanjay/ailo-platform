@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import ModalFilter from './ModalFilter.vue';
+import ModalFilter from './Filter/ModalFilter';
 export default {
 	name: 'Modal',
 	props: ['category'],

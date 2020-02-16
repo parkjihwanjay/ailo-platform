@@ -1,7 +1,7 @@
 <template>
 	<div class="item-box">
-		<list-img :imgSrc="imgSrc"></list-img>
-		<list-content :tags="tags" :price="price"></list-content>
+		<list-img :imgSrc="list.imgSrc"></list-img>
+		<list-content :list="list"></list-content>
 	</div>
 </template>
 
@@ -10,16 +10,14 @@ import ListImg from './ListImg.vue';
 import ListContent from './ListContent.vue';
 export default {
 	name: 'ListItem',
+	props: {
+		list: {
+			type: Object,
+		},
+	},
 	components: {
 		ListImg,
 		ListContent,
-	},
-	data() {
-		return {
-			tags: ['가로형', '만년형', '묶음'],
-			imgSrc: 'https://shopping-phinf.pstatic.net/main_8233777/82337772344.1.jpg?type=f300',
-			price: 9600,
-		};
 	},
 };
 </script>
