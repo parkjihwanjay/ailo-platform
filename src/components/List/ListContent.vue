@@ -1,12 +1,12 @@
 <template>
 	<div class="item-content-box">
 		<div class="item-content">
-			<a target="_blank" :href="list.productLink">
-				<h2>{{ list.title }}</h2>
-			</a>
-			<a target="_blank" :href="list.companyLink">
-				<h4>{{ list.company }} ></h4>
-			</a>
+			<!-- <a target="_blank" :href="list.productLink"> -->
+			<h2>{{ list.title }}</h2>
+			<!-- </a> -->
+			<!-- <a target="_blank" :href="list.companyLink"> -->
+			<h4>{{ list.company }} ></h4>
+			<!-- </a> -->
 			<div class="item-content-tag-box">
 				<list-tag v-for="tag in list.tags" :tag="tag"></list-tag>
 			</div>
