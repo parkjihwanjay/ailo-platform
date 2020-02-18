@@ -4,11 +4,6 @@
 			<option disabled value="" selected>골라주세요</option>
 			<option :value="sort" v-for="sort in sortList">{{ sort }}</option>
 		</select>
-		<!-- <v-select
-				class="style-chooser"
-				placeholder="Choose a Styling Option"
-				:options="['Components', 'CSS / Variables', 'Slots']"
-			></v-select> -->
 	</div>
 </template>
 

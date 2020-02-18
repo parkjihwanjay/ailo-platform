@@ -43,15 +43,15 @@ export default {
 		menuSelect(index) {
 			if (index === 0)
 				this.$router.push({
-					name: 'Intro',
+					path: '/intro',
 				});
 			else if (index === 1)
 				this.$router.push({
-					name: 'Home',
+					path: '/',
 				});
 			else
 				this.$router.push({
-					name: 'Feedback',
+					path: '/feedback',
 				});
 		},
 	},
