@@ -8,19 +8,11 @@
 		>
 			{{ menu }}
 		</div>
-		<!-- <div :class="{ 'border-bottom': homeClicked }" class="menu-option" @click="homeSelect">
-			소개
-		</div>
-		<div :class="{ 'border-bottom': homeClicked }" class="menu-option" @click="homeSelect">
-			홈
-		</div>
-		<div :class="{ 'border-bottom': introClicked }" class="menu-option" @click="introSelect">
-			피드백
-		</div> -->
 	</div>
 </template>
 
 <script>
+import changeClass from '@/utils/changeClass.js';
 export default {
 	name: 'HeaderMenu',
 	props: {
@@ -34,22 +26,21 @@ export default {
 		};
 	},
 	mounted() {
-		this.$refs.menu[1].classList.add('border-bottom');
+		const menuRefs = this.$refs.menu;
+		this.classInitialize(menuRefs);
 	},
 	methods: {
+		classInitialize(menuRefs) {
+			if (this.$route.name === 'Intro') menuRefs[0].classList.add('border-bottom');
+			else if (this.$route.name === 'Home') menuRefs[1].classList.add('border-bottom');
+			else menuRefs[2].classList.add('border-bottom');
+		},
 		menuSelect(index) {
 			if (this.indexClicked === index) return;
 
-			const menuRefs = this.$refs.menu;
-
-			menuRefs.forEach(menuRef => {
-				menuRef.classList.remove('border-bottom');
-			});
-
-			menuRefs[index].classList.add('border-bottom');
+			changeClass(this.$refs.menu, index, 'border-bottom');
 
 			this.$emit('menuSelect', index);
-
 			this.indexClicked = index;
 		},
 	},

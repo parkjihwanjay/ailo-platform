@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import changeClass from '@/utils/changeClass.js';
+
 export default {
 	name: 'CategoryButton',
 	// props : ['category', 'cateList']
@@ -26,13 +28,7 @@ export default {
 	},
 	methods: {
 		changeCate(index) {
-			const cateDivs = this.$refs.category;
-
-			cateDivs.forEach(category => {
-				category.classList.remove('border-red');
-			});
-
-			cateDivs[index].classList.add('border-red');
+			changeClass(this.$refs.category, index, 'border-red');
 			this.$emit('changeCate', this.cateList[index]);
 		},
 	},
