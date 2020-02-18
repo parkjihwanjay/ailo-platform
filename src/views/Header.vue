@@ -36,8 +36,8 @@ export default {
 	height: 88px;
 	position: fixed;
 	top: 0;
+	max-width: 800px;
 	z-index: 999;
 	background-color: white;
-	// position: fixed;
 }
 </style>
