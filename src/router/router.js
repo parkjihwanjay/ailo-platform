@@ -1,22 +1,16 @@
 import Home from '../views/Home.vue';
+import Intro from '../views/Intro.vue';
 // import List from '../views/List.vue';
 const routes = [
 	{
 		path: '/',
 		name: 'Home',
 		component: Home,
-		// children: [
-		// 	{
-		// 		path: '/list',
-		// 		name: 'List',
-		// 		component: List,
-		// 	},
-		// ],
 	},
 	{
 		path: '/intro',
 		name: 'Intro',
-		component: Home,
+		component: Intro,
 	},
 	{
 		path: '/feedback',
