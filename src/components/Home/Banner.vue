@@ -6,6 +6,7 @@
 			:paginationPadding="5"
 			:Number="4000"
 			:loop="true"
+			:autoplayTimeout="4000"
 			paginationActiveColor="#8c58a5"
 		>
 			<slide>

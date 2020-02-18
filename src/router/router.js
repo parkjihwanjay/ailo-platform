@@ -18,6 +18,11 @@ const routes = [
 		name: 'Intro',
 		component: Home,
 	},
+	{
+		path: '/feedback',
+		name: 'Feedback',
+		component: Home,
+	},
 ];
 
 export default routes;

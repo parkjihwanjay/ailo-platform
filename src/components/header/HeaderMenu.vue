@@ -1,39 +1,56 @@
 <template>
 	<div class="menu">
+		<div
+			v-for="(menu, index) in menuList"
+			ref="menu"
+			@click="menuSelect(index)"
+			class="menu-option"
+		>
+			{{ menu }}
+		</div>
+		<!-- <div :class="{ 'border-bottom': homeClicked }" class="menu-option" @click="homeSelect">
+			소개
+		</div>
 		<div :class="{ 'border-bottom': homeClicked }" class="menu-option" @click="homeSelect">
 			홈
 		</div>
 		<div :class="{ 'border-bottom': introClicked }" class="menu-option" @click="introSelect">
-			소개/피드백
-		</div>
+			피드백
+		</div> -->
 	</div>
 </template>
 
 <script>
 export default {
 	name: 'HeaderMenu',
+	props: {
+		menuList: {
+			type: Array,
+		},
+	},
 	data() {
 		return {
-			homeClicked: true,
-			introClicked: false,
+			indexClicked: 1,
 		};
 	},
+	mounted() {
+		this.$refs.menu[1].classList.add('border-bottom');
+	},
 	methods: {
-		homeSelect() {
-			if (this.homeClicked) return;
+		menuSelect(index) {
+			if (this.indexClicked === index) return;
 
-			this.homeClicked = true;
-			this.introClicked = false;
+			const menuRefs = this.$refs.menu;
 
-			this.$emit('menuSelected', 'home');
-		},
-		introSelect() {
-			if (this.introClicked) return;
+			menuRefs.forEach(menuRef => {
+				menuRef.classList.remove('border-bottom');
+			});
 
-			this.homeClicked = false;
-			this.introClicked = true;
+			menuRefs[index].classList.add('border-bottom');
 
-			this.$emit('menuSelected', 'intro');
+			this.$emit('menuSelect', index);
+
+			this.indexClicked = index;
 		},
 	},
 };

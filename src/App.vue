@@ -22,8 +22,5 @@ export default {
 	max-width: 800px;
 	margin: 0 auto;
 	background-color: white;
-	//test 용
-	// border: 1px solid black;
-	// height: 700px;
 }
 </style>
