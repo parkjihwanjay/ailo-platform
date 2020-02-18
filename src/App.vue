@@ -2,17 +2,17 @@
 	<div id="app">
 		<Header />
 		<router-view></router-view>
-		<!-- <Modal /> -->
+		<Footer />
 	</div>
 </template>
 
 <script>
 import Header from './views/Header.vue';
-// import Modal from './views/Modal.vue';
+import Footer from './views/Footer.vue';
 export default {
 	components: {
 		Header,
-		// Modal,
+		Footer,
 	},
 };
 </script>
