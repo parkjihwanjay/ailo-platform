@@ -48,8 +48,8 @@ export default {
 	height: 43px;
 	border-radius: 10px;
 	margin: 0 auto;
-	margin-top: 30px;
-	padding-bottom: 30px;
+	margin-top: 54px;
+	padding-bottom: 54px;
 	max-width: 500px;
 }
 

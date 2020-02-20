@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade">
-		<div class="header" v-show="!scrollDown" id="header">
+		<div class="header" v-show="!scrollDown" ref="header" id="header">
 			<header-title></header-title>
 			<header-menu :menuList="menuList" @menuSelect="menuSelect"></header-menu>
 		</div>
@@ -25,6 +25,8 @@ export default {
 		};
 	},
 	mounted() {
+		// console.log(this.$route.path);
+		if (this.$route.path !== '/feedback') return this.$refs.header.classList.add('position');
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			// detects new state and compares it with the new one
@@ -59,11 +61,14 @@ export default {
 <style lang="scss" scoped>
 .header {
 	width: 100%;
-	position: fixed;
-	top: 0;
 	max-width: 800px;
 	z-index: 999;
 	background-color: white;
+}
+
+.position {
+	position: fixed;
+	top: 0;
 }
 
 .fade-enter-active,
