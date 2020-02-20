@@ -19,14 +19,15 @@ export default {
 	},
 	data() {
 		return {
-			menuList: ['소개', '홈', '피드백'],
+			menuList: ['홈', '소개', '피드백'],
 			scrollPos: 0,
 			scrollDown: false,
 		};
 	},
 	mounted() {
 		// console.log(this.$route.path);
-		if (this.$route.path !== '/feedback') return this.$refs.header.classList.add('position');
+		if (this.$route.path === '/feedback') this.$refs.header.classList.remove('position');
+		else this.$refs.header.classList.add('position');
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			// detects new state and compares it with the new one
@@ -43,11 +44,11 @@ export default {
 		menuSelect(index) {
 			if (index === 0)
 				this.$router.push({
-					path: '/intro',
+					path: '/',
 				});
 			else if (index === 1)
 				this.$router.push({
-					path: '/',
+					path: '/intro',
 				});
 			else
 				this.$router.push({
