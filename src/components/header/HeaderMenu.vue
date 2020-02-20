@@ -22,7 +22,7 @@ export default {
 	},
 	data() {
 		return {
-			indexClicked: 1,
+			indexClicked: 0,
 		};
 	},
 	mounted() {
@@ -31,8 +31,8 @@ export default {
 	},
 	methods: {
 		classInitialize(menuRefs) {
-			if (this.$route.name === 'Intro') menuRefs[0].classList.add('border-bottom');
-			else if (this.$route.name === 'Home') menuRefs[1].classList.add('border-bottom');
+			if (this.$route.name === 'Home') menuRefs[0].classList.add('border-bottom');
+			else if (this.$route.name === 'Intro') menuRefs[1].classList.add('border-bottom');
 			else menuRefs[2].classList.add('border-bottom');
 		},
 		menuSelect(index) {
