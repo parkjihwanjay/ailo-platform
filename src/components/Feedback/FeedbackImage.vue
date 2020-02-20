@@ -1,5 +1,5 @@
 <template>
-	<div class="big-box"></div>
+	<div class="img-box"></div>
 </template>
 
 <script>
@@ -9,8 +9,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.big-box {
-	width: 90%;
-	margin-left: 10%;
+.img-box {
+	width: 75px;
+	margin-left: 75px;
 }
 </style>

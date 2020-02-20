@@ -40,12 +40,16 @@ export default {
 	width: 30%;
 	height: 100%;
 	border-radius: 5px;
-	border: solid 0.5px #707070;
+	// border: solid 0.5px #707070;
 }
 .input-email {
 	width: 60%;
 	height: 100%;
 	border-radius: 5px;
+}
+
+.input-email input {
+	border: solid 0.5px #707070;
 }
 
 .input-data {

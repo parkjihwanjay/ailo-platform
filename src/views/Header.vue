@@ -28,12 +28,10 @@ export default {
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			// detects new state and compares it with the new one
-			if (document.body.getBoundingClientRect().top > this.scrollPos) {
-				// document.getElementById('info-box').setAttribute('data-scroll-direction', 'UP');
-				this.scrollDown = false;
-			} else {
-				// document.getElementById('info-box').setAttribute('data-scroll-direction', 'DOWN');
-				this.scrollDown = true;
+			if (window.scrollY > 400) {
+				document.body.getBoundingClientRect().top > this.scrollPos
+					? (this.scrollDown = false)
+					: (this.scrollDown = true);
 			}
 			// saves the new position for iteration.
 			this.scrollPos = document.body.getBoundingClientRect().top;
