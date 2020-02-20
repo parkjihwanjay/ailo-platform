@@ -24,10 +24,18 @@ export default {
 			scrollDown: false,
 		};
 	},
+	computed: {
+		path() {
+			return this.$route.path;
+		},
+	},
+	watch: {
+		path(path) {
+			if (path === '/feedback') this.$refs.header.classList.remove('position');
+			else this.$refs.header.classList.add('position');
+		},
+	},
 	mounted() {
-		// console.log(this.$route.path);
-		if (this.$route.path === '/feedback') this.$refs.header.classList.remove('position');
-		else this.$refs.header.classList.add('position');
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			// detects new state and compares it with the new one
@@ -42,6 +50,7 @@ export default {
 	},
 	methods: {
 		menuSelect(index) {
+			// if (this.path === this.menuList[index])
 			if (index === 0)
 				this.$router.push({
 					path: '/',

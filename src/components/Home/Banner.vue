@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-	margin-top: 100px;
+	margin-top: 120px;
 	width: 100%;
 	height: 63vw;
 	max-height: 480px;

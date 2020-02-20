@@ -20,11 +20,11 @@ export default {
 			type: Array,
 		},
 	},
-	data() {
-		return {
-			indexClicked: 0,
-		};
-	},
+	// data() {
+	// 	return {
+	// 		indexClicked: 0,
+	// 	};
+	// },
 	mounted() {
 		const menuRefs = this.$refs.menu;
 		this.classInitialize(menuRefs);
@@ -36,12 +36,10 @@ export default {
 			else menuRefs[2].classList.add('border-bottom');
 		},
 		menuSelect(index) {
-			if (this.indexClicked === index) return;
-
 			changeClass(this.$refs.menu, index, 'border-bottom');
 
 			this.$emit('menuSelect', index);
-			this.indexClicked = index;
+			// this.indexClicked = index;
 		},
 	},
 };
