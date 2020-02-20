@@ -23,3 +23,7 @@ yarn-error.log*
 # 개인 파일들
 
 *.txt
+
+# node.js 폴더
+
+back-end

@@ -43,6 +43,13 @@ export default {
 	display: flex;
 	align-items: center;
 }
+.input-box label {
+	cursor: pointer;
+}
+.input-box input {
+	cursor: pointer;
+}
+
 .check-button {
 	width: 100%;
 	height: 43px;
@@ -61,5 +68,6 @@ export default {
 	background-color: $primary-color;
 	color: white;
 	font-size: 1.6rem;
+	cursor: pointer;
 }
 </style>

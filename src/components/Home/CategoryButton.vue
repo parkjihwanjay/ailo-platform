@@ -24,11 +24,11 @@ export default {
 		this.$emit('changeCate', this.cateList[0]);
 	},
 	mounted() {
-		this.$refs.category[0].classList.add('border-red');
+		this.$refs.category[0].classList.add('purple-full');
 	},
 	methods: {
 		changeCate(index) {
-			changeClass(this.$refs.category, index, 'border-red');
+			changeClass(this.$refs.category, index, 'purple-full');
 			this.$emit('changeCate', this.cateList[index]);
 		},
 	},
@@ -52,10 +52,13 @@ export default {
 	padding-bottom: 0.4rem;
 	border: 1px solid $primary-color;
 	border-bottom: 0;
+	cursor: pointer;
+
 	// box-shadow: 0.7px 0 0 0 #000000, 0.7px 0 0 0 #000000 inset, 0 0.7px 0 0 #000000 inset;
 }
 
-.border-red {
-	border-color: red;
+.purple-full {
+	background-color: $primary-color;
+	color: white;
 }
 </style>
