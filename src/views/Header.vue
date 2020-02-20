@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade">
-		<div class="header" v-show="!scrollDown" ref="header" id="header">
+		<div class="header position" v-show="!scrollDown" ref="header" id="header">
 			<header-title></header-title>
 			<header-menu :menuList="menuList" @menuSelect="menuSelect"></header-menu>
 		</div>
@@ -24,18 +24,11 @@ export default {
 			scrollDown: false,
 		};
 	},
-	computed: {
-		path() {
-			return this.$route.path;
-		},
-	},
-	watch: {
-		path(path) {
-			if (path === '/feedback') this.$refs.header.classList.remove('position');
-			else this.$refs.header.classList.add('position');
-		},
-	},
 	mounted() {
+		this.$route.path === '/feedback'
+			? this.$refs.header.classList.remove('position')
+			: this.$refs.header.classList.add('position');
+
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			// detects new state and compares it with the new one
@@ -50,19 +43,22 @@ export default {
 	},
 	methods: {
 		menuSelect(index) {
-			// if (this.path === this.menuList[index])
-			if (index === 0)
+			if (index === 0) {
+				this.$refs.header.classList.add('position');
 				this.$router.push({
 					path: '/',
 				});
-			else if (index === 1)
+			} else if (index === 1) {
+				this.$refs.header.classList.add('position');
 				this.$router.push({
 					path: '/intro',
 				});
-			else
+			} else {
+				this.$refs.header.classList.remove('position');
 				this.$router.push({
 					path: '/feedback',
 				});
+			}
 		},
 	},
 };
