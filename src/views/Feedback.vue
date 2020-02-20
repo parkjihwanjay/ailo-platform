@@ -92,7 +92,7 @@ export default {
 .feedback {
 	width: 90%;
 	margin: 0 auto;
-	margin-top: 120px;
+	margin-top: 65px;
 }
 .feedback-footer {
 	width: 100%;
