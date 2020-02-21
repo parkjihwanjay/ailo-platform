@@ -6,7 +6,7 @@
 			<sort-button :sortList="sortList" :sort="sort" @sortSelected="changeSort"></sort-button>
 			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
-		<List :lists="lists" />
+		<List :lists="tempLists" />
 		<!-- <router-view></router-view> -->
 		<Modal :category="category" v-show="filterOn" />
 	</div>
@@ -25,6 +25,7 @@ import List from './List.vue';
 
 import { EventBus } from '../utils/event-bus.js';
 
+import axios from 'axios';
 export default {
 	components: {
 		Banner,
@@ -37,12 +38,13 @@ export default {
 	data() {
 		return {
 			cateList: ['다이어리', '노트', '스티커'],
-			category: '',
+			category: '다이어리',
 			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
 			sort: '',
 			filters: {},
 			filterOn: false,
-			lists: [
+			lists: [],
+			tempLists: [
 				{
 					// 필수
 
@@ -172,22 +174,40 @@ export default {
 			],
 		};
 	},
-	created() {
-		EventBus.$on('finishFilter', filters => {
+	async created() {
+		EventBus.$on('finishFilter', async filters => {
 			this.filterOn = false;
 			this.filters = filters;
-			console.log(filters);
+			await this.fetchList();
 		});
+
 		// 데이터 불러오는 로직
+		await this.fetchList();
 	},
 	methods: {
-		changeCate(category) {
+		async changeCate(category) {
 			this.category = category;
+			await this.fetchList();
 		},
-		changeSort(sort) {
+		async changeSort(sort) {
 			this.sort = sort;
+			await this.fetchList();
 		},
 		// 데이터 불러오는 함수
+		async fetchList() {
+			let url = '';
+
+			if (this.category === '다이어리') url = 'diary';
+			else if (this.category === '노트') url = 'note';
+			else url = 'sticker';
+
+			url = `/products/${url}`;
+			const fetchList = await axios.get(url, {
+				sort: this.sort,
+				filters: this.filters,
+			});
+			this.lists = fetchList.data;
+		},
 	},
 };
 </script>

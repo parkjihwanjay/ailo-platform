@@ -21,7 +21,8 @@ export default {
 		},
 	},
 	created() {
-		this.$emit('changeCate', this.cateList[0]);
+		changeClass(this.$refs.category, 0, 'purple-full');
+		// this.$emit('changeCate', this.cateList[0]);
 	},
 	mounted() {
 		this.$refs.category[0].classList.add('purple-full');
