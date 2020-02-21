@@ -46,7 +46,7 @@ export default {
 }
 .input-box {
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
 }
 .input-box label {
 	cursor: pointer;

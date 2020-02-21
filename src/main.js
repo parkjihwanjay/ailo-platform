@@ -20,7 +20,7 @@ const DEPLOY_IP = 'https://ailo.kro.kr';
 const LOCAL_IP = 'http://localhost:3000';
 
 axios.defaults.baseURL = LOCAL_IP;
-console.log(process.env.NODE_ENV);
+
 library.add(faFilter);
 library.add(faTimes);
 
