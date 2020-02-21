@@ -20,12 +20,9 @@ export default {
 			},
 		},
 	},
-	created() {
-		changeClass(this.$refs.category, 0, 'purple-full');
-		// this.$emit('changeCate', this.cateList[0]);
-	},
 	mounted() {
 		this.$refs.category[0].classList.add('purple-full');
+		this.$refs.category[1].classList.add('border-none-side');
 	},
 	methods: {
 		changeCate(index) {
@@ -61,5 +58,10 @@ export default {
 .purple-full {
 	background-color: $primary-color;
 	color: white;
+}
+
+.border-none-side {
+	border-left: 0px;
+	border-right: 0px;
 }
 </style>

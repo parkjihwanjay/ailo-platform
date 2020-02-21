@@ -62,7 +62,7 @@ export default {
 					// 표지 이미지 주소
 					imgSrc: 'https://shopping-phinf.pstatic.net/main_8233777/82337772344.1.jpg',
 					// 등록일
-					pub_date: '2020.01',
+					publishDate: '2020.01',
 					// 가격
 					price: 9600,
 					// 클릭 수
