@@ -19,27 +19,26 @@ export default {
 		menuList: {
 			type: Array,
 		},
+		pathName: {
+			type: String,
+		},
 	},
-	// data() {
-	// 	return {
-	// 		indexClicked: 0,
-	// 	};
-	// },
+	watch: {
+		pathName(pName) {
+			this.classInitialize(pName, this.$refs.menu);
+		},
+	},
 	mounted() {
-		const menuRefs = this.$refs.menu;
-		this.classInitialize(menuRefs);
+		this.classInitialize(this.pathName, this.$refs.menu);
 	},
 	methods: {
-		classInitialize(menuRefs) {
-			if (this.$route.name === 'Home') menuRefs[0].classList.add('border-bottom');
-			else if (this.$route.name === 'Intro') menuRefs[1].classList.add('border-bottom');
-			else menuRefs[2].classList.add('border-bottom');
+		classInitialize(pName, menuRefs) {
+			if (pName === 'Home') changeClass(menuRefs, 0, 'border-bottom');
+			else if (pName === 'Intro') changeClass(menuRefs, 1, 'border-bottom');
+			else changeClass(menuRefs, 2, 'border-bottom');
 		},
 		menuSelect(index) {
-			changeClass(this.$refs.menu, index, 'border-bottom');
-
 			this.$emit('menuSelect', index);
-			// this.indexClicked = index;
 		},
 	},
 };

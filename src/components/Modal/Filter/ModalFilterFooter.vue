@@ -40,5 +40,6 @@ input[type='button'] {
 	text-align: center;
 	padding-top: 7px;
 	cursor: pointer;
+	border-style: none;
 }
 </style>
