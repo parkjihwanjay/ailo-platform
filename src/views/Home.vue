@@ -178,6 +178,11 @@ export default {
 		EventBus.$on('finishFilter', async filters => {
 			this.filterOn = false;
 			this.filters = filters;
+			this.$ga.event({
+				eventCategory: 'filter',
+				eventAction: 'click',
+				eventValue: filters,
+			});
 			await this.fetchList();
 		});
 
@@ -187,10 +192,20 @@ export default {
 	methods: {
 		async changeCate(category) {
 			this.category = category;
+			this.$ga.event({
+				eventCategory: 'category',
+				eventAction: 'click',
+				eventValue: category,
+			});
 			await this.fetchList();
 		},
 		async changeSort(sort) {
 			this.sort = sort;
+			this.$ga.event({
+				eventCategory: 'sort',
+				eventAction: 'click',
+				eventValue: sort,
+			});
 			await this.fetchList();
 		},
 		// 데이터 불러오는 함수

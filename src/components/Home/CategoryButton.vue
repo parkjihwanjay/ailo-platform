@@ -27,6 +27,7 @@ export default {
 	methods: {
 		changeCate(index) {
 			changeClass(this.$refs.category, index, 'purple-full');
+
 			this.$emit('changeCate', this.cateList[index]);
 		},
 	},
