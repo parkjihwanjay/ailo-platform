@@ -4,6 +4,8 @@
 			<feedback-select
 				:senderList="senderList"
 				:placeholder="placeholder"
+				:userType="userType"
+				:email="email"
 				@senderSelected="senderSelected"
 				@emailEntered="emailEntered"
 			></feedback-select>
@@ -14,12 +16,17 @@
 			></feedback-input>
 		</div>
 		<div class="feedback-footer">
-			<feedback-footer @check="agreement = !agreement" @clickButton="clickButton"></feedback-footer>
+			<feedback-footer
+				:agreement="agreement"
+				@check="agreement = !agreement"
+				@clickButton="clickButton"
+			></feedback-footer>
 		</div>
 	</div>
 </template>
 
 <script>
+import axios from 'axios';
 import { required, email } from 'vuelidate/lib/validators';
 import FeedbackSelect from '../components/Feedback/FeedbackSelect.vue';
 import FeedbackInput from '../components/Feedback/FeedbackInput.vue';
@@ -62,12 +69,29 @@ export default {
 		feedbackEntered(feedback) {
 			this.content = feedback;
 		},
-		clickButton() {
-			console.log(this.$v);
+		async clickButton() {
 			this.$v.$touch();
 			if (this.validate()) {
-				console.log('데이터 전송 준비 완료');
+				// 데이터 전송 로직
+				try {
+					await axios.post('/clientcenters/feedback', {
+						email: this.email,
+						userType: this.userType,
+						content: this.content,
+						agreement: this.agreement,
+					});
+					this.dataInitialize();
+					alert('성공적으로 업로드 됐습니다');
+				} catch (e) {
+					alert('잘못된 형식입니다.');
+				}
 			}
+		},
+		dataInitialize() {
+			this.userType = '소비자';
+			this.email = '';
+			this.content = '';
+			this.agreement = false;
 		},
 		validate() {
 			if (!this.agreement) return alert('개인정보 처리방침을 동의해주세요');

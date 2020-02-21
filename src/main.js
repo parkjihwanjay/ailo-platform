@@ -10,6 +10,16 @@ import { faFilter, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Vuelidate from 'vuelidate';
 
+import axios from 'axios';
+
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+const DEPLOY_IP = 'https://ailo.kro.kr';
+const LOCAL_IP = 'http://localhost:3000';
+
+axios.defaults.baseURL = LOCAL_IP;
+
 library.add(faFilter);
 library.add(faTimes);
 

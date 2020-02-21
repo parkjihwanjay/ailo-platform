@@ -8,7 +8,7 @@
 				<strong>개인정보 처리방침</strong>을 참고하시기 바랍니다.
 			</p>
 			<div class="input-box">
-				<input type="checkbox" id="checkbox" @change="$emit('check')" />
+				<input type="checkbox" id="checkbox" :checked="agreement" @change="$emit('check')" />
 				<label for="checkbox">위 내용에 동의합니다.</label>
 			</div>
 			<div class="check-button">
@@ -21,6 +21,11 @@
 <script>
 export default {
 	name: 'FeedbackFooter',
+	props: {
+		agreement: {
+			type: Boolean,
+		},
+	},
 };
 </script>
 

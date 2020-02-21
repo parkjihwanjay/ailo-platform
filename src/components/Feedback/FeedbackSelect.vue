@@ -1,12 +1,18 @@
 <template>
 	<div class="feedback-top">
 		<div class="input-select">
-			<select class="input-data" @change="senderSelected">
+			<select class="input-data" :value="userType" @change="senderSelected">
 				<option v-for="sender in senderList" :value="sender">{{ sender }}</option>
 			</select>
 		</div>
 		<div class="input-email">
-			<input class="input-data" @blur="emailEntered" type="text" :placeholder="placeholder" />
+			<input
+				class="input-data"
+				:value="email"
+				@blur="emailEntered"
+				type="text"
+				:placeholder="placeholder"
+			/>
 		</div>
 	</div>
 </template>
@@ -17,6 +23,8 @@ export default {
 	props: {
 		senderList: Array,
 		placeholder: String,
+		userType: String,
+		email: String,
 	},
 	methods: {
 		senderSelected(e) {

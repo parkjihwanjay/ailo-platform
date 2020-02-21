@@ -5,6 +5,7 @@
 			class="input-box"
 			@input="feedbackEntered"
 			:maxlength="maxLength"
+			:value="feedback"
 		></textarea>
 		<div class="max-length">{{ feedbackLength }} / 최대 {{ maxLength }}자</div>
 	</div>
