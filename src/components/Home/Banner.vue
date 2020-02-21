@@ -10,16 +10,16 @@
 			paginationActiveColor="#8c58a5"
 		>
 			<slide>
-				<img src="../../assets/banner/banner1.png" alt="" />
+				<img src="../../assets/banner/banner1.jpg" alt="" />
 			</slide>
 			<slide>
-				<img src="../../assets/banner/banner2.png" alt="" />
+				<img src="../../assets/banner/banner2.jpg" alt="" />
 			</slide>
 			<slide>
-				<img src="../../assets/banner/banner3.png" alt="" />
+				<img src="../../assets/banner/banner3.jpg" alt="" />
 			</slide>
 			<slide>
-				<img src="../../assets/banner/banner4.png" alt="" />
+				<img src="../../assets/banner/banner4.jpg" alt="" />
 			</slide>
 		</carousel>
 	</div>

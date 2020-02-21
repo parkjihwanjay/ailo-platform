@@ -32,7 +32,6 @@ export default {
 <style lang="scss" scoped>
 .footer-box {
 	width: 100%;
-	// height: 207px;
 	background-color: #eaeaea;
 }
 .footer-content {
