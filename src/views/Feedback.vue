@@ -94,8 +94,7 @@ export default {
 			this.agreement = false;
 		},
 		validate() {
-			if (!this.agreement) return alert('개인정보 처리방침을 동의해주세요');
-
+			if (!this.agreement) return alert('개인정보 처리방침을 동의해주세요');
 			if (this.$v.$invalid) {
 				if (this.$v.email.$invalid) {
 					return !this.$v.email.required

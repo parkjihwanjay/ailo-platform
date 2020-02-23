@@ -66,7 +66,9 @@ export default {
 }
 
 .item-content-tag-box {
-	width: 60%;
+	width: 80%;
+	max-width: 160px;
+	min-width: 111px;
 	display: flex;
 	justify-content: space-between;
 	flex-wrap: wrap;
@@ -75,9 +77,7 @@ export default {
 
 .item-price {
 	font-size: 1.3rem;
-	// margin-bottom: 15px;
+	margin-top: 1.3rem;
 	font-weight: bold;
-	position: relative;
-	top: 2rem;
 }
 </style>
