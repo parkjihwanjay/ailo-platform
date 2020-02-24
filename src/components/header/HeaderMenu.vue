@@ -60,9 +60,10 @@ export default {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	cursor: pointer;
+	border-bottom: 0.5px solid gray;
 }
 
 .border-bottom {
-	border-bottom: 1px solid $primary-color;
+	border-bottom: 2px solid $primary-color;
 }
 </style>
