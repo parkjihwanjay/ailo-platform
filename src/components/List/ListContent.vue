@@ -48,9 +48,11 @@ export default {
 }
 
 .item-content h2 {
-	font-size: 1rem;
+	font-size: 1.2rem;
+	line-height: 1.7;
 	margin: 0;
 	margin-top: 1.3rem;
+	font-weight: bold;
 }
 
 .item-content h4 {
