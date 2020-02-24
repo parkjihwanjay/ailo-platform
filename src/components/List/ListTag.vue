@@ -28,13 +28,36 @@ export default {
 }
 
 .tag-box-content {
-	padding: 0.3rem;
-	// padding-top: 0.3rem;
-	// padding-bottom: 0.3rem;
-	font-size: 0.7rem;
+	padding: 4px;
+	padding-right: 6px;
+	padding-left: 6px;
+	font-size: 9px;
 	text-align: center;
 	color: black;
 	opacity: unset;
+}
+
+@media screen and (max-width: 600px) {
+	.tag-box-content {
+		padding: 4px;
+		padding-right: 6px;
+		padding-left: 6px;
+		font-size: 7px;
+		text-align: center;
+		color: black;
+		opacity: unset;
+	}
+}
+@media screen and (min-width: 600px) {
+	.tag-box-content {
+		padding: 4px;
+		padding-right: 6px;
+		padding-left: 6px;
+		font-size: 12px;
+		text-align: center;
+		color: black;
+		opacity: unset;
+	}
 }
 
 // @media screen and (max-width: 450px) {

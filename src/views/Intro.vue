@@ -14,7 +14,7 @@ export default {
 .intro {
 	width: 90%;
 	margin: 0 auto;
-	margin-top: 120px;
+	margin-top: 180px;
 }
 
 .intro img {

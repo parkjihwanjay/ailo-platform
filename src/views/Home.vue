@@ -228,11 +228,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.home {
+	margin: 0 auto;
+}
 .box {
 	height: 1.9rem;
 	width: 90%;
 	margin: 0 auto;
-	margin-top: 20px;
+	margin-top: 4rem;
 	display: flex;
 }
 </style>

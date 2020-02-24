@@ -48,11 +48,12 @@ export default {
 .menu {
 	width: 90%;
 	margin: 0 auto;
-	margin-top: 13px;
+	margin-top: 3.8rem;
 	display: flex;
 }
 
 .menu-option {
+	font-weight: 900;
 	width: 50%;
 	text-align: center;
 	font-size: 1.3rem;

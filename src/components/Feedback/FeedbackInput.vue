@@ -39,7 +39,7 @@ export default {
 
 .input-box textarea {
 	width: 100%;
-	height: 246px;
+	height: 600px;
 	padding: 5px;
 	resize: none;
 	border: solid 0.5px #707070;

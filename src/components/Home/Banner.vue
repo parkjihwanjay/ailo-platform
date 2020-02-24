@@ -43,7 +43,7 @@ export default {
 	height: 63vw;
 	max-height: 480px;
 	margin: 0 auto;
-	margin-top: 120px;
+	margin-top: 13rem;
 }
 .full {
 	width: 100%;
