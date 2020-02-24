@@ -38,11 +38,12 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-	margin-top: 120px;
 	width: 100%;
 	max-width: 750px;
 	height: 63vw;
 	max-height: 480px;
+	margin: 0 auto;
+	margin-top: 120px;
 }
 .full {
 	width: 100%;
