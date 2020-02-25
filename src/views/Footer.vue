@@ -36,6 +36,6 @@ export default {
 	display: flex;
 }
 .footer > div:nth-child(2) > div:last-child {
-	margin-left: 14px;
+	margin-left: 1.4rem;
 }
 </style>

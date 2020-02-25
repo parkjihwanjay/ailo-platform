@@ -13,11 +13,12 @@ import Vuelidate from 'vuelidate';
 import VueAnalytics from 'vue-analytics';
 
 import axios from 'axios';
+
+const DEPLOY_IP = 'http://13.125.207.132';
+const LOCAL_IP = 'http://localhost:3000';
+
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-const DEPLOY_IP = 'https://ailo.kro.kr';
-const LOCAL_IP = 'http://localhost:3000';
 
 axios.defaults.baseURL = LOCAL_IP;
 
@@ -27,6 +28,7 @@ library.add(faTimes);
 Vue.use(Vuelidate);
 
 const isProd = process.env.NODE_ENV === 'production';
+
 Vue.use(VueAnalytics, {
 	id: process.env.VUE_APP_GOOGLE_ANALYTICS,
 	router,

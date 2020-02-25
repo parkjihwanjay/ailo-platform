@@ -35,13 +35,12 @@ export default {
 		},
 	},
 	mounted() {
-		// console.log(this.pathName);
 		this.classInitialize(this.pathName);
 		// adding scroll event
 		window.addEventListener('scroll', () => {
 			if (this.pathName === 'Feedback') return;
 			// detects new state and compares it with the new one
-			if (window.scrollY > 400) {
+			if (window.scrollY > 50) {
 				document.body.getBoundingClientRect().top > this.scrollPos
 					? (this.scrollDown = false)
 					: (this.scrollDown = true);

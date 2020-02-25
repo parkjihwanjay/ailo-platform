@@ -37,40 +37,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 600px) {
-	.item-content-box {
-		width: 170px;
-	}
-	.item-content h1 {
-		width: 153px;
-		max-height: 63px;
-		font-size: 10px;
-		line-height: 1.7;
-		margin: 0;
-		margin-top: 5px;
-		font-weight: 900;
-		overflow: hidden;
-	}
-	.item-content h4 {
-		font-size: 8px;
-		margin: 0;
-		margin-top: 10px;
-	}
-	.item-price {
-		font-size: 13px;
-		font-weight: 900;
-		margin-top: 13px;
-	}
-	.item-content-tag-box {
-		// width: 80%;
-		// max-width: 160px;
-		// min-width: 111px;
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		margin-top: 10px;
-		width: 77%;
-	}
+.item-content-box {
+	width: 170px;
+}
+.item-content h1 {
+	width: 153px;
+	max-height: 63px;
+	font-size: 10px;
+	line-height: 1.7;
+	margin: 0;
+	margin-top: 5px;
+	// font-weight: 900;
+	overflow: hidden;
+}
+.item-content h4 {
+	font-size: 8px;
+	margin: 0;
+	margin-top: 10px;
+}
+.item-price {
+	font-size: 13px;
+	// font-weight: 900;
+	margin-top: 13px;
+}
+.item-content-tag-box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 10px;
+	width: 77%;
 }
 
 @media screen and (min-width: 600px) {
@@ -82,30 +77,18 @@ export default {
 		max-height: 115px;
 		font-size: 15px;
 		line-height: 1.7;
-		margin: 0;
 		margin-top: 16px;
-		font-weight: 900;
-		overflow: hidden;
 	}
 	.item-content h4 {
 		font-size: 12px;
-		margin: 0;
 		margin-top: 34px;
 	}
 	.item-price {
 		font-size: 20px;
-		font-weight: 900;
 		margin-top: 36px;
 	}
 	.item-content-tag-box {
-		// width: 80%;
-		// max-width: 160px;
-		// min-width: 111px;
-		display: flex;
-		justify-content: space-between;
-		flex-wrap: wrap;
 		margin-top: 36px;
-		width: 77%;
 	}
 }
 

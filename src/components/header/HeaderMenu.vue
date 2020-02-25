@@ -53,17 +53,18 @@ export default {
 }
 
 .menu-option {
-	font-weight: 900;
+	// font-weight: 900;
 	width: 50%;
 	text-align: center;
 	font-size: 1.3rem;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	cursor: pointer;
-	border-bottom: 0.5px solid gray;
+	border-bottom: 1px solid gray;
 }
 
 .border-bottom {
-	border-bottom: 2px solid $primary-color;
+	border-bottom: 0.5px solid $primary-color;
+	border-bottom-width: thick;
 }
 </style>

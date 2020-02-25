@@ -1,5 +1,5 @@
 <template>
-	<div class="listBox">
+	<div class="list-box">
 		<list-item v-for="list in lists" :list="list"></list-item>
 	</div>
 </template>
@@ -23,9 +23,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.listBox {
-	width: 90%;
+.list-box {
+	width: 320px;
 	margin: 0 auto;
 	margin-top: 5rem;
+}
+@media screen and (min-width: 600px) {
+	.list-box {
+		width: 580px;
+	}
 }
 </style>

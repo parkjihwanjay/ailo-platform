@@ -18,21 +18,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 600px) {
-	.item-img {
-		width: 150px;
-		height: 150px;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
-	}
+.item-img {
+	width: 150px;
+	height: 150px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 @media screen and (min-width: 600px) {
 	.item-img {
 		width: 300px;
 		height: 300px;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
 	}
 }
 
