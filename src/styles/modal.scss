@@ -20,3 +20,12 @@
 	background-color: white;
 	transition: opacity 0.3s ease;
 }
+
+.policy-modal {
+	width: 90%;
+	max-width: 750px;
+	height: 670px;
+	overflow: scroll;
+	padding: 15px;
+	line-height: 2;
+}

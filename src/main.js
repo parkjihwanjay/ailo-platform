@@ -20,7 +20,7 @@ const LOCAL_IP = 'http://localhost:3000';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-axios.defaults.baseURL = LOCAL_IP;
+axios.defaults.baseURL = DEPLOY_IP;
 
 library.add(faFilter);
 library.add(faTimes);

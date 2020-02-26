@@ -1,18 +1,29 @@
 <template>
-	<div class="modal">
-		<transition name="fade">
-			<modal-filter :category="category"></modal-filter>
-		</transition>
+	<div>
+		<transition-group name="fade">
+			<modal-filter
+				key="ModalFilter"
+				class="modal"
+				v-show="filterOn"
+				:category="category"
+			></modal-filter>
+			<modal-privacy key="ModalPrivacy" class="modal" v-if="policyOn"></modal-privacy>
+			<modal-terms key="ModalTerms" class="modal" v-if="termsOn"></modal-terms>
+		</transition-group>
 	</div>
 </template>
 
 <script>
-import ModalFilter from './Filter/ModalFilter';
+import ModalFilter from './Filter/ModalFilter.vue';
+import ModalPrivacy from './UserPolicy/ModalPrivacy.vue';
+import ModalTerms from './UserPolicy/ModalTerms.vue';
 export default {
 	name: 'Modal',
-	props: ['category'],
+	props: ['category', 'filterOn', 'termsOn', 'policyOn'],
 	components: {
 		ModalFilter,
+		ModalPrivacy,
+		ModalTerms,
 	},
 };
 </script>

@@ -21,6 +21,7 @@ export default {
 .title-text {
 	font-size: 1.5rem;
 	margin-right: 0.5rem;
+	font-weight: 900;
 }
 .title-box {
 	width: 3rem;

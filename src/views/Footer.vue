@@ -3,16 +3,35 @@
 		<div class="footer">
 			<div>AILO</div>
 			<div>
-				<div>이용 약관</div>
-				<div>개인정보 처리방침 이용약관</div>
+				<div @click="termsOn = true">이용 약관</div>
+				<div @click="policyOn = true">개인정보 처리방침</div>
 			</div>
 		</div>
+		<Modal :termsOn="termsOn" :policyOn="policyOn" />
 	</div>
 </template>
 
 <script>
+import Modal from '../components/Modal/Modal.vue';
+import { EventBus } from '@/utils/event-bus.js';
+
 export default {
 	name: 'Footer',
+	components: {
+		Modal,
+	},
+	data() {
+		return {
+			termsOn: false,
+			policyOn: false,
+		};
+	},
+	created() {
+		EventBus.$on('closeUserPolicy', () => {
+			this.termsOn = false;
+			this.policyOn = false;
+		});
+	},
 };
 </script>
 
@@ -35,6 +54,11 @@ export default {
 .footer > div:nth-child(2) {
 	display: flex;
 }
+
+.footer > div:nth-child(2) div {
+	cursor: pointer;
+}
+
 .footer > div:nth-child(2) > div:last-child {
 	margin-left: 1.4rem;
 }

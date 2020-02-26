@@ -1,8 +1,10 @@
 <template>
-	<div class="modal-container filter-modal">
-		<ModalFilterHead />
-		<ModalFilterBody @filterClicked="filterClicked" :filterData="filterData" />
-		<ModalFilterFooter @finishFilter="finishFilter" />
+	<div>
+		<div class="modal-container filter-modal">
+			<ModalFilterHead />
+			<ModalFilterBody @filterClicked="filterClicked" :filterData="filterData" />
+			<ModalFilterFooter @finishFilter="finishFilter" />
+		</div>
 	</div>
 </template>
 

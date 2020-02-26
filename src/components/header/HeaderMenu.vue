@@ -48,7 +48,7 @@ export default {
 .menu {
 	width: 90%;
 	margin: 0 auto;
-	margin-top: 3.8rem;
+	margin-top: 2.2rem;
 	display: flex;
 }
 

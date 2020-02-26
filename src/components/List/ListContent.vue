@@ -42,7 +42,7 @@ export default {
 }
 .item-content h1 {
 	width: 153px;
-	max-height: 63px;
+	max-height: 48px;
 	font-size: 10px;
 	line-height: 1.7;
 	margin: 0;
@@ -53,12 +53,12 @@ export default {
 .item-content h4 {
 	font-size: 8px;
 	margin: 0;
-	margin-top: 10px;
+	margin-top: 30px;
 }
 .item-price {
 	font-size: 13px;
 	// font-weight: 900;
-	margin-top: 13px;
+	margin-top: 27px;
 }
 .item-content-tag-box {
 	display: flex;
