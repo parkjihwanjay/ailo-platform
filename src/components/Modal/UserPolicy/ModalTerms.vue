@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div @click="clickOut">
 		<div class="modal-container policy-modal">
 			<h1>이용약관</h1>
 			<h3>제1장 총칙</h3>
@@ -598,6 +598,11 @@ export default {
 	name: 'ModalTerms',
 	components: {
 		CloseButton,
+	},
+	methods: {
+		clickOut(e) {
+			if (e.target.className === 'modal') this.$emit('close');
+		},
 	},
 };
 </script>

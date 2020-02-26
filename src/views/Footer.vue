@@ -7,7 +7,7 @@
 				<div @click="policyOn = true">개인정보 처리방침</div>
 			</div>
 		</div>
-		<Modal :termsOn="termsOn" :policyOn="policyOn" />
+		<Modal :termsOn="termsOn" :policyOn="policyOn" @close="close" />
 	</div>
 </template>
 
@@ -31,6 +31,12 @@ export default {
 			this.termsOn = false;
 			this.policyOn = false;
 		});
+	},
+	methods: {
+		close() {
+			this.policyOn = false;
+			this.termsOn = false;
+		},
 	},
 };
 </script>

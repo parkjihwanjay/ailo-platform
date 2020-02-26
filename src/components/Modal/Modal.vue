@@ -4,11 +4,23 @@
 			<modal-filter
 				key="ModalFilter"
 				class="modal"
+				@click="filterOn = false"
 				v-show="filterOn"
 				:category="category"
 			></modal-filter>
-			<modal-privacy key="ModalPrivacy" class="modal" v-if="policyOn"></modal-privacy>
-			<modal-terms key="ModalTerms" class="modal" v-if="termsOn"></modal-terms>
+			<modal-privacy
+				key="ModalPrivacy"
+				class="modal"
+				@close="$emit('close')"
+				v-if="policyOn"
+			></modal-privacy>
+			<modal-terms
+				@click="termsOn = false"
+				@close="$emit('close')"
+				key="ModalTerms"
+				class="modal"
+				v-if="termsOn"
+			></modal-terms>
 		</transition-group>
 	</div>
 </template>
@@ -25,6 +37,7 @@ export default {
 		ModalPrivacy,
 		ModalTerms,
 	},
+	methods: {},
 };
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div @click="clickOut">
 		<div class="modal-container policy-modal">
 			<h1>개인정보 처리방침</h1>
 			<p>
@@ -180,6 +180,11 @@ export default {
 	name: 'ModalPrivacy',
 	components: {
 		CloseButton,
+	},
+	methods: {
+		clickOut(e) {
+			if (e.target.className === 'modal') this.$emit('close');
+		},
 	},
 };
 </script>
