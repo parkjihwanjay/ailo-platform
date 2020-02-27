@@ -1,10 +1,10 @@
 <template>
-	<a target="_blank" :href="list.productLink">
-		<div class="item-box">
-			<list-img :imgSrc="list.imgSrc"></list-img>
-			<list-content :list="list"></list-content>
-		</div>
-	</a>
+	<!-- <a target="_blank" :href="item.productLink"> -->
+	<div @click="click" class="item-box">
+		<list-img :imgSrc="item.imgSrc"></list-img>
+		<list-content :item="item"></list-content>
+	</div>
+	<!-- </a> -->
 </template>
 
 <script>
@@ -13,7 +13,7 @@ import ListContent from './ListContent.vue';
 export default {
 	name: 'ListItem',
 	props: {
-		list: {
+		item: {
 			type: Object,
 		},
 	},
@@ -22,10 +22,11 @@ export default {
 		ListContent,
 	},
 	methods: {
-		// clickLink() {
-		// 	window.location
-		// 	console.log('asdf');
-		// },
+		click() {
+			// 조회수 증가하는 백 요청 추가
+			console.log(this.item._id);
+			window.location.href = this.item.productLink;
+		},
 	},
 };
 </script>
@@ -45,6 +46,7 @@ export default {
 	display: flex;
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 	border-radius: 5px;
+	cursor: pointer;
 }
 
 // @media screen and (max-width: 600px) {

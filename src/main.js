@@ -14,7 +14,7 @@ import VueAnalytics from 'vue-analytics';
 
 import axios from 'axios';
 
-const DEPLOY_IP = 'http://13.125.207.132';
+const DEPLOY_IP = 'https://ailo-digitalnote.kro.kr/';
 const LOCAL_IP = 'http://localhost:3000';
 
 axios.defaults.xsrfCookieName = 'csrftoken';

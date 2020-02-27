@@ -2,13 +2,13 @@
 	<div class="item-content-box">
 		<div class="item-content">
 			<!-- <a target="_blank" :href="list.productLink"> -->
-			<h1>{{ list.title }}</h1>
+			<h1>{{ item.title }}</h1>
 			<!-- </a> -->
 			<!-- <a target="_blank" :href="list.companyLink"> -->
-			<h4 class="company">{{ list.company }} ></h4>
+			<h4 class="company">{{ item.company }} ></h4>
 			<!-- </a> -->
 			<div class="item-content-tag-box">
-				<list-tag v-for="tag in list.tags" :tag="tag"></list-tag>
+				<list-tag v-for="tag in item.tags" :tag="tag"></list-tag>
 			</div>
 			<div class="item-price">{{ priceString }}원</div>
 		</div>
@@ -24,13 +24,13 @@ export default {
 		ListTag,
 	},
 	props: {
-		list: {
+		item: {
 			type: Object,
 		},
 	},
 	computed: {
 		priceString() {
-			return this.list.price.toLocaleString('en');
+			return this.item.price.toLocaleString('en');
 		},
 	},
 };

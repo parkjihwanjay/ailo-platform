@@ -20,6 +20,7 @@
     "vue-carousel": "^0.18.0",
     "vue-router": "^3.1.5",
     "vue-select": "^3.4.0",
+    "vue-spinner": "^1.0.3",
     "vuelidate": "^0.7.5"
   },
   "devDependencies": {

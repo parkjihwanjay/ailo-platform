@@ -1,6 +1,6 @@
 <template>
 	<div class="list-box">
-		<list-item v-for="list in lists" :list="list"></list-item>
+		<list-item v-for="item in list" :item="item"></list-item>
 	</div>
 </template>
 
@@ -9,7 +9,7 @@ import ListItem from '../components/List/ListItem.vue';
 export default {
 	name: 'ListBox',
 	props: {
-		lists: {
+		list: {
 			type: Array,
 		},
 	},
