@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import changeClass from '@/utils/changeClass.js';
 export default {
 	name: 'ModalFilterBodyContent',
 	props: {
@@ -23,9 +24,9 @@ export default {
 		contents: {
 			type: Array,
 		},
-	},
-	created() {
-		this.$emit('filterClicked', this.title, this.contents[0]);
+		meaning: {
+			type: String,
+		},
 	},
 	mounted() {
 		this.$refs[this.title][0].classList.add('clicked');
@@ -33,14 +34,19 @@ export default {
 	methods: {
 		clickButton(index) {
 			const divButtons = this.$refs[this.title];
-
-			divButtons.forEach(divButton => {
-				divButton.classList.remove('clicked');
-			});
-
-			divButtons[index].classList.add('clicked');
-
-			this.$emit('filterClicked', this.title, this.contents[index]);
+			if (this.title === '용도') {
+				if (index) {
+					divButtons[0].classList.remove('clicked');
+					divButtons[index].classList.toggle('clicked');
+				} else {
+					divButtons[0].classList.length
+						? divButtons[index].classList.toggle('clicked')
+						: changeClass(divButtons, 0, 'clicked');
+				}
+			} else {
+				changeClass(divButtons, index, 'clicked');
+			}
+			this.$emit('filterClicked', this.meaning, this.contents[index]);
 		},
 	},
 };
@@ -54,10 +60,14 @@ export default {
 .content-title {
 	font-size: 1rem;
 	margin-bottom: 0.7rem;
+	text-align: center;
 }
 .content-body {
+	width: 80%;
+	margin: 0 auto;
 	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 input[type='button'] {
 	width: 6.8rem;
@@ -65,9 +75,14 @@ input[type='button'] {
 	opacity: 0.5;
 	border-radius: 15px;
 	border: solid 0.7px #000000;
+	// flex: 1;
+	// min-width: 33%;
 	// background-color: white;
-	padding: 0;
+	// padding: 0;
+
 	line-height: normal;
+	margin-top: 1.6rem;
+	// margin-left: 20%;
 }
 
 .clicked {

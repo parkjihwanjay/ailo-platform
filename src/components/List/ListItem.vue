@@ -1,6 +1,6 @@
 <template>
 	<!-- <a target="_blank" :href="item.productLink"> -->
-	<div @click="click" class="item-box">
+	<div @click="$emit('click', item._id)" class="item-box">
 		<list-img :imgSrc="item.imgSrc"></list-img>
 		<list-content :item="item"></list-content>
 	</div>
@@ -10,6 +10,7 @@
 <script>
 import ListImg from './ListImg.vue';
 import ListContent from './ListContent.vue';
+
 export default {
 	name: 'ListItem',
 	props: {
@@ -22,10 +23,19 @@ export default {
 		ListContent,
 	},
 	methods: {
-		click() {
+		async click() {
+			this.$emit('click', this.item_id);
 			// 조회수 증가하는 백 요청 추가
+			// /프로덕트/views/:id
+			// try {
+			// 	await axios.get(`/products/sticker/views/${this.item._id}`);
+			// } catch (e) {
+			// 	console.log(e);
+			// }
 			console.log(this.item._id);
-			window.location.href = this.item.productLink;
+			// console.log(this.item.productLink);
+			// console.log(this.item);
+			// window.location.href = this.item.productLink;
 		},
 	},
 };

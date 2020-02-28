@@ -5,6 +5,7 @@
 				v-for="data in filterData"
 				:title="data.title"
 				:contents="data.contents"
+				:meaning="data.meaning"
 				@filterClicked="filterClicked"
 			/>
 		</div>
@@ -24,8 +25,8 @@ export default {
 		ModalFilterBodyContent,
 	},
 	methods: {
-		filterClicked(title, content) {
-			this.$emit('filterClicked', title, content);
+		filterClicked(meaning, content) {
+			this.$emit('filterClicked', meaning, content);
 		},
 	},
 };

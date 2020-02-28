@@ -6,7 +6,7 @@
 			<sort-button :sortList="sortList" :sort="sort" @sortSelected="changeSort"></sort-button>
 			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
-		<List :list="list" />
+		<List :list="list" :url="url" />
 		<!-- <router-view></router-view> -->
 		<Modal :category="category" :filterOn="filterOn" />
 		<spinner-loader :loading="spinnerLoading" :color="spinnerColor"></spinner-loader>
@@ -43,6 +43,7 @@ export default {
 			cateList: ['다이어리', '노트', '스티커'],
 			category: '다이어리',
 			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
+			url: '',
 			sort: '',
 			filters: {},
 			filterOn: false,
@@ -182,6 +183,7 @@ export default {
 	async created() {
 		EventBus.$on('finishFilter', async filters => {
 			this.filterOn = false;
+
 			this.filters = filters;
 			this.$ga.event({
 				eventCategory: 'filter',
@@ -196,6 +198,7 @@ export default {
 	},
 	methods: {
 		async changeCate(category) {
+			this.filters = {};
 			this.category = category;
 			this.$ga.event({
 				eventCategory: 'category',
@@ -216,26 +219,20 @@ export default {
 		// 데이터 불러오는 함수
 		async fetchList() {
 			this.spinnerLoading = true;
+			this.list = [];
 
-			let url = '';
+			if (this.category === '다이어리') this.url = `/products/diary`;
+			else if (this.category === '노트') this.url = `/products/note`;
+			else this.url = this.url = `/products/sticker`;
 
-			if (this.category === '다이어리') url = 'diary';
-			else if (this.category === '노트') url = 'note';
-			else url = 'sticker';
-
-			url = `/products/${url}`;
 			const fetchList = await axios({
-				method: 'get',
-				url,
-				params: {
+				method: 'post',
+				url: this.url,
+				data: {
 					sort: this.sort,
 					filters: this.filters,
 				},
 			});
-			// get(url, {
-			// 	sort: this.sort,
-			// 	filters: this.filters,
-			// });
 			this.list = fetchList.data;
 
 			this.spinnerLoading = false;
