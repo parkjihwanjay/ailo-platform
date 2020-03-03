@@ -23,8 +23,9 @@ export default {
 		ListContent,
 	},
 	methods: {
-		async click() {
-			this.$emit('click', this.item_id);
+		click() {
+			this.$emit('click', this.item);
+			// window.location.href = this.item.productLink;
 			// 조회수 증가하는 백 요청 추가
 			// /프로덕트/views/:id
 			// try {
@@ -32,10 +33,9 @@ export default {
 			// } catch (e) {
 			// 	console.log(e);
 			// }
-			console.log(this.item._id);
+			// console.log(this.item._id);
 			// console.log(this.item.productLink);
 			// console.log(this.item);
-			// window.location.href = this.item.productLink;
 		},
 	},
 };

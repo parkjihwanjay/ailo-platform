@@ -42,7 +42,7 @@ export default {
 }
 .item-content h1 {
 	width: 153px;
-	max-height: 48px;
+	height: 48px;
 	font-size: 10px;
 	line-height: 1.7;
 	margin: 0;

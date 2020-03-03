@@ -21,9 +21,10 @@ export default {
 		ListItem,
 	},
 	methods: {
-		async click(id) {
+		async click(item) {
 			try {
-				console.log(id);
+				console.log(item);
+				// window.location.href = item.productLink;
 				// await axios.delete(`/products/sticker/${id}`);
 				// await axios.get(`${this.url}/views/${id}`);
 			} catch (e) {

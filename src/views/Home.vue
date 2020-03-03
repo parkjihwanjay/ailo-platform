@@ -3,7 +3,12 @@
 		<Banner />
 		<category-button @changeCate="changeCate" :cateList="cateList"></category-button>
 		<div class="box">
-			<sort-button :sortList="sortList" :sort="sort" @sortSelected="changeSort"></sort-button>
+			<sort-button
+				:category="category"
+				:sortList="sortList"
+				:sort="sort"
+				@sortSelected="changeSort"
+			></sort-button>
 			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
 		<List :list="list" :url="url" />
@@ -199,6 +204,7 @@ export default {
 	methods: {
 		async changeCate(category) {
 			this.filters = {};
+			this.sort = '';
 			this.category = category;
 			this.$ga.event({
 				eventCategory: 'category',

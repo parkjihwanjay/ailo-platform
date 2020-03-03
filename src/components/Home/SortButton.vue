@@ -2,7 +2,7 @@
 	<div class="sort">
 		<select v-model="sort" @change="$emit('sortSelected', sort)">
 			<option disabled value="" selected>골라주세요</option>
-			<option :value="sort" v-for="sort in sortList">{{ sort }}</option>
+			<option v-for="sort in sortList">{{ sort }}</option>
 		</select>
 	</div>
 </template>
@@ -17,11 +17,19 @@ export default {
 				return ['다이어리', '노트', '스티커'];
 			},
 		},
+		category: {
+			type: String,
+		},
 	},
 	data() {
 		return {
 			sort: '',
 		};
+	},
+	watch: {
+		category() {
+			this.sort = '';
+		},
 	},
 };
 </script>

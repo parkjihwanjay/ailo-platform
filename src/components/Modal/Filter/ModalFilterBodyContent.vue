@@ -63,7 +63,7 @@ export default {
 	text-align: center;
 }
 .content-body {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
