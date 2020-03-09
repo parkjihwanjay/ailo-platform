@@ -1,6 +1,14 @@
 <template>
 	<div class="tag-box">
-		<div class="tag-box-content"># {{ tag }}</div>
+		<!-- <div v-if="tag.length > 1" class="tag-box-content"># {{ tag[1] }}</div>
+		<div v-else-if="tag[0] === '있음'" class="tag-box-content"># 하이퍼링크</div>
+		<div v-else-if="tag[0] !== '없음'" class="tag-box-content"># {{ tag[0] }}</div> -->
+		<template v-if="tag != undefined">
+			<div v-if="tag === '있음'" class="tag-box-content"># 하이퍼링크</div>
+			<div v-else-if="tag.length >= 6" class="tag-box-content"># {{ tag.substring(0, 2) }}</div>
+			<div v-else-if="tag !== '없음'" class="tag-box-content"># {{ tag }}</div>
+		</template>
+		<!-- <div v-else class="tag-box-content"># {{ tag }}</div> -->
 	</div>
 </template>
 
@@ -25,6 +33,7 @@ export default {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-right: 1rem;
 }
 
 .tag-box-content {

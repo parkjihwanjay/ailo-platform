@@ -8,7 +8,9 @@
 			<h4 class="company">{{ item.company }} ></h4>
 			<!-- </a> -->
 			<div class="item-content-tag-box">
-				<list-tag v-for="tag in item.tags" :tag="tag"></list-tag>
+				<list-tag v-show="item.hyperLink" :tag="item.direction"></list-tag>
+				<list-tag v-show="item.hyperLink" :tag="item.hyperLink"></list-tag>
+				<list-tag :tag="item.usage"></list-tag>
 			</div>
 			<div class="item-price">{{ priceString }}원</div>
 		</div>
@@ -25,6 +27,9 @@ export default {
 	},
 	props: {
 		item: {
+			type: Object,
+		},
+		filters: {
 			type: Object,
 		},
 	},
@@ -53,19 +58,19 @@ export default {
 .item-content h4 {
 	font-size: 8px;
 	margin: 0;
-	margin-top: 30px;
+	margin-top: 10px;
 }
 .item-price {
 	font-size: 13px;
 	// font-weight: 900;
-	margin-top: 27px;
+	margin-top: 22px;
 }
 .item-content-tag-box {
 	display: flex;
-	justify-content: space-between;
+	// justify-content: flex-start;
 	flex-wrap: wrap;
-	margin-top: 10px;
-	width: 77%;
+	margin-top: 20px;
+	width: 100%;
 }
 
 @media screen and (min-width: 600px) {
@@ -74,21 +79,21 @@ export default {
 	}
 	.item-content h1 {
 		width: 252px;
-		max-height: 115px;
+		height: 115px;
 		font-size: 15px;
 		line-height: 1.7;
 		margin-top: 16px;
 	}
 	.item-content h4 {
 		font-size: 12px;
-		margin-top: 34px;
+		margin-top: 0px;
 	}
 	.item-price {
 		font-size: 20px;
-		margin-top: 36px;
+		margin-top: 54px;
 	}
 	.item-content-tag-box {
-		margin-top: 36px;
+		margin-top: 53px;
 	}
 }
 

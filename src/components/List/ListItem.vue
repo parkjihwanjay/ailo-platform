@@ -2,7 +2,7 @@
 	<!-- <a target="_blank" :href="item.productLink"> -->
 	<div @click="$emit('click', item._id)" class="item-box">
 		<list-img :imgSrc="item.imgSrc"></list-img>
-		<list-content :item="item"></list-content>
+		<list-content :item="item" :filters="filters"></list-content>
 	</div>
 	<!-- </a> -->
 </template>
@@ -15,6 +15,9 @@ export default {
 	name: 'ListItem',
 	props: {
 		item: {
+			type: Object,
+		},
+		filters: {
 			type: Object,
 		},
 	},

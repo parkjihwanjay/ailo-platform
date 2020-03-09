@@ -2,6 +2,7 @@
 	<div class="filter-body">
 		<div class="filter-bdoy__content">
 			<ModalFilterBodyContent
+				:category="category"
 				v-for="data in filterData"
 				:title="data.title"
 				:contents="data.contents"
@@ -19,6 +20,9 @@ export default {
 	props: {
 		filterData: {
 			type: Array,
+		},
+		category: {
+			type: String,
 		},
 	},
 	components: {

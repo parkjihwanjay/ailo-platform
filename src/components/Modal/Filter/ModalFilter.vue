@@ -2,7 +2,11 @@
 	<div>
 		<div class="modal-container filter-modal">
 			<ModalFilterHead />
-			<ModalFilterBody @filterClicked="filterClicked" :filterData="filterData" />
+			<ModalFilterBody
+				@filterClicked="filterClicked"
+				:filterData="filterData"
+				:category="category"
+			/>
 			<ModalFilterFooter @finishFilter="finishFilter" />
 		</div>
 	</div>
@@ -33,18 +37,25 @@ export default {
 			if (this.category === '다이어리') {
 				return [
 					{
-						title: '하이퍼링크',
-						contents: ['있음', '없음'],
+						title: '용도',
+						meaning: 'usage',
+						contents: ['전체', '일반 다이어리', '테마 다이어리', '낱장 다이어리'],
+					},
+					{
+						title: '타입',
+						meaning: 'type',
+						contents: ['전체', '날짜형', '만년형'],
 					},
 					{
 						title: '방향',
+						meaning: 'direction',
 						contents: ['전체', '가로', '세로'],
 					},
 					// 날짜형일 경우
 					{
 						title: '분량',
 						meaning: 'amount',
-						contents: ['6개월', '1년', '2년'],
+						contents: ['전체', '6개월', '1년', '2년'],
 					},
 				];
 			} else if (this.category === '노트') {
@@ -68,8 +79,9 @@ export default {
 			} else {
 				return [
 					{
-						title: '다운로드',
-						contents: ['전체', '블로그', '스토어'],
+						title: '용도',
+						meaning: 'usage',
+						contents: ['전체', '스티커', '메모지', '마스킹 테이프'],
 					},
 				];
 			}
@@ -77,20 +89,36 @@ export default {
 	},
 	methods: {
 		filterClicked(meaning, content) {
+			console.log(meaning, content);
 			// 전체를 눌렀을 때 데이터를 안 보내기 위해
 			if (content === '전체') return delete this.filters[meaning];
 			// hyperlink는 boolean 타입
-			if (meaning === 'hyperlink') {
+			if (meaning === 'hyperlink' || meaning === 'amount' || meaning === 'usage') {
 				this.filters[meaning] = content;
 			} else {
-				// 다른 값들은 배열
 				if (!this.filters[meaning]) {
-					// 방향의 경우 default로 '가로세로' 값이 있음
-					this.filters[meaning] = meaning === 'direction' ? ['가로세로'] : [];
+					// 방향의 경우 default로 '가로세로' 값이  있음
+					// this.filters[meaning] = meaning === 'direction' ? ['가로세로'] : [];
+					if (meaning === 'direction') {
+						this.filters[meaning] = ['가로세로'];
+						this.filters[meaning].push(content);
+					} else if (meaning === 'type') {
+						this.filters[meaning] = ['날짜형만년형'];
+						this.filters[meaning].push(content);
+					} else this.filters[meaning] = [];
+				} else {
+					if (meaning === 'type' || meaning === 'direction') {
+						this.filters[meaning].splice(1, 1);
+						this.filters[meaning].push(content);
+					} else {
+						// toggle하는 로직
+						const index = this.filters[meaning].indexOf(content);
+						console.log(index);
+						index > -1
+							? this.filters[meaning].splice(index, 1)
+							: this.filters[meaning].push(content);
+					}
 				}
-				// toggle하는 로직
-				const index = this.filters[meaning].indexOf(content);
-				index > -1 ? this.filters[meaning].splice(index, 1) : this.filters[meaning].push(content);
 			}
 		},
 		finishFilter() {

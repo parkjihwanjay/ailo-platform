@@ -27,26 +27,46 @@ export default {
 		meaning: {
 			type: String,
 		},
+		category: {
+			type: String,
+		},
 	},
 	mounted() {
 		this.$refs[this.title][0].classList.add('clicked');
 	},
+	watch: {
+		category() {
+			const divButtons = this.$refs[this.title];
+			this.initializeClass(divButtons);
+		},
+	},
 	methods: {
 		clickButton(index) {
 			const divButtons = this.$refs[this.title];
-			if (this.title === '용도') {
-				if (index) {
-					divButtons[0].classList.remove('clicked');
-					divButtons[index].classList.toggle('clicked');
-				} else {
-					divButtons[0].classList.length
-						? divButtons[index].classList.toggle('clicked')
-						: changeClass(divButtons, 0, 'clicked');
-				}
-			} else {
-				changeClass(divButtons, index, 'clicked');
-			}
+			// if (this.title === '용도' || this.title === '분량') {
+			// 	if (index) {
+			// 		divButtons[0].classList.remove('clicked');
+			// 		divButtons[index].classList.toggle('clicked');
+			// 	} else {
+			// 		divButtons[0].classList.length
+			// 			? divButtons[index].classList.toggle('clicked')
+			// 			: changeClass(divButtons, 0, 'clicked');
+			// 	}
+			// } else {
+			// 	changeClass(divButtons, index, 'clicked');
+			// 	// divButtons[index].className
+			// 	// 	? divButtons[index].classList.toggle('clicked')
+			// 	// 	: changeClass(divButtons, index, 'clicked');
+			// }
+			changeClass(divButtons, index, 'clicked');
+
 			this.$emit('filterClicked', this.meaning, this.contents[index]);
+		},
+		initializeClass(divButtons) {
+			for (let i = 0; i < divButtons.length; i++) {
+				divButtons[i].classList.remove('clicked');
+			}
+			divButtons[0].classList.add('clicked');
 		},
 	},
 };

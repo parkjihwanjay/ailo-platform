@@ -11,7 +11,7 @@
 			></sort-button>
 			<filter-button :category="category" @openFilter="filterOn = true"></filter-button>
 		</div>
-		<List :list="list" :url="url" />
+		<List :list="list" :url="url" :filters="filters" :comment="comment" />
 		<!-- <router-view></router-view> -->
 		<Modal :category="category" :filterOn="filterOn" />
 		<spinner-loader :loading="spinnerLoading" :color="spinnerColor"></spinner-loader>
@@ -50,6 +50,7 @@ export default {
 			sortList: ['인기순', '최신순', '가격 낮은 순', '가격 높은 순'],
 			url: '',
 			sort: '',
+			comment: '상품을 조회중입니다.',
 			filters: {},
 			filterOn: false,
 			spinnerLoading: false,
@@ -211,6 +212,7 @@ export default {
 				eventAction: 'click',
 				eventValue: category,
 			});
+			this.comment = '상품을 조회중입니다.';
 			await this.fetchList();
 		},
 		async changeSort(sort) {
@@ -220,6 +222,7 @@ export default {
 				eventAction: 'click',
 				eventValue: sort,
 			});
+			this.comment = '상품을 조회중입니다.';
 			await this.fetchList();
 		},
 		// 데이터 불러오는 함수
@@ -240,7 +243,7 @@ export default {
 				},
 			});
 			this.list = fetchList.data;
-
+			if (!this.list.length) this.comment = '해당하는 상품이 없습니다.';
 			this.spinnerLoading = false;
 		},
 	},
